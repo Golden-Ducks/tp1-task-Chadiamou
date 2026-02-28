@@ -40,9 +40,13 @@ with open("task2.txt", "r") as f:
 text = text.lower()
 text = re.sub(r"[^\w\s]", "", text)
 text = re.sub(r"\s+", " ", text).strip()
+
 text = normalize_numbers(text)
 text = normalize_text(text)
-
+punctuation = "!()-[]{};:,<>./?@#$%^&*_~'\""
+for c in punctuation:
+        b = text.replace(c, "")
+text = b.split()
 print(text)
 
 
